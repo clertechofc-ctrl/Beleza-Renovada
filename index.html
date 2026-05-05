@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Beleza Renovada | Cabelo, Mechas e Tratamentos em Santo André</title>
+  <meta name="description" content="Studio Beleza Renovada em Santo André. Cabelo, cortes, escova, mechas, luzes, hidratação, cronograma capilar e agendamento pelo WhatsApp." />
+
+  <style>
+    :root{
+      --bg:#0f0b08;
+      --cream:#fbf4ec;
+      --paper:#fffaf5;
+      --paper2:#f5e6d8;
+      --dark:#1d130f;
+      --brown:#714a35;
+      --muted:#7a655a;
+      --gold:#c28a4a;
+      --gold2:#e7c18d;
+      --green:#25d366;
+      --neon-rose:#ff73b8;
+      --line:rgba(29,19,15,.12);
+      --shadow:0 28px 80px rgba(53,34,22,.18);
+      --shadow-dark:0 28px 80px rgba(0,0,0,.42);
+      --max:1200px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--dark);line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(100% - 34px,var(--max));margin:0 auto}
+
+    .topbar{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(15,11,8,.84);border-bottom:1px solid rgba(255,255,255,.10);backdrop-filter:blur(18px)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px;color:#fff}
+    .brand{display:flex;align-items:center;gap:14px;min-width:270px}
+    .logo{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 42%,#fff 0 34%,#f8ded5 35% 62%,#c28a4a 63%);box-shadow:0 0 0 3px rgba(255,115,184,.18),0 0 32px rgba(255,115,184,.18),0 14px 34px rgba(194,138,74,.25);font-family:Georgia,serif;color:#4a2b1e;font-weight:800;font-size:20px;letter-spacing:-1px;overflow:hidden}
+    .logo:before{content:"BR";position:relative;z-index:2}.logo:after{content:"";position:absolute;inset:8px;border:1px solid rgba(74,43,30,.24);border-radius:50%}
+    .brand strong{display:block;font-size:17px;line-height:1.1}.brand small{display:block;margin-top:4px;color:#d7c2b5;font-size:11px;text-transform:uppercase;letter-spacing:1.5px}
+    .navlinks{display:flex;align-items:center;gap:26px;color:#f2dfd4;font-size:14px}.navlinks a{opacity:.78;transition:.2s}.navlinks a:hover{opacity:1;color:#fff}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-weight:850;cursor:pointer;transition:.28s ease;white-space:nowrap;border-radius:999px;position:relative;overflow:hidden}
+    .btn::before{content:"";position:absolute;inset:-1px;border-radius:inherit;background:linear-gradient(135deg,rgba(255,115,184,0),rgba(255,115,184,.35),rgba(255,179,215,0));opacity:0;transition:.28s ease;pointer-events:none}.btn:hover{transform:translateY(-2px)}.btn:hover::before{opacity:1}
+    .btn.primary{background:linear-gradient(135deg,#ff8fc7,#ffd1e8);color:#2a0f1c;border-color:transparent;box-shadow:0 10px 28px rgba(255,115,184,.22)}.btn.primary:hover{box-shadow:0 0 12px rgba(255,115,184,.55),0 0 28px rgba(255,115,184,.35),0 12px 35px rgba(255,115,184,.28)}
+    .btn.dark{background:#1d130f;color:#fff;border:1px solid rgba(255,115,184,.22)}.btn.dark:hover{box-shadow:0 0 10px rgba(255,115,184,.35),0 0 24px rgba(255,115,184,.18);border-color:rgba(255,115,184,.45)}
+    .btn.whats{background:var(--green);color:#06120a;border-color:transparent;box-shadow:0 16px 40px rgba(37,211,102,.22)}
+    .menu-btn{display:none;width:48px;padding:0}.mobile-menu{display:none;position:fixed;top:78px;left:0;right:0;background:rgba(15,11,8,.98);border-bottom:1px solid rgba(255,255,255,.10);padding:16px 24px}.mobile-menu.open{display:block}.mobile-menu a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.10);color:#fff;font-weight:800}
+
+    .hero{position:relative;min-height:100vh;padding:124px 0 70px;display:flex;align-items:center;background:var(--bg);color:#fff;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 18%,rgba(255,115,184,.18),transparent 18%),radial-gradient(circle at 75% 18%,rgba(194,138,74,.35),transparent 20%),radial-gradient(circle at 90% 72%,rgba(201,131,123,.25),transparent 22%),linear-gradient(90deg,rgba(15,11,8,.98),rgba(15,11,8,.82) 47%,rgba(15,11,8,.38)),linear-gradient(135deg,#0f0b08,#27170f)}
+    .hero:after{content:"";position:absolute;right:-5%;top:110px;width:min(56vw,700px);height:72%;border-radius:44px 0 0 44px;background:linear-gradient(180deg,rgba(255,255,255,.20),rgba(255,255,255,.04)),repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 2px,transparent 2px 18px),linear-gradient(135deg,#b9855d,#e2c7a5 48%,#6b3f2d);box-shadow:var(--shadow-dark),0 0 42px rgba(255,115,184,.12);opacity:.85}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+    .hero-copy{max-width:720px}.kicker{display:inline-flex;align-items:center;gap:12px;color:#f8e6d7;text-transform:uppercase;letter-spacing:2.7px;font-size:12px;font-weight:900;margin-bottom:24px}.kicker:before{content:"";width:46px;height:1px;background:var(--neon-rose);box-shadow:0 0 12px rgba(255,115,184,.7)}
+    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,6vw,82px);font-weight:500;line-height:.98;letter-spacing:-2.4px;margin-bottom:22px}.lead{color:#ead8cb;font-size:clamp(17px,2vw,21px);max-width:680px;margin-bottom:30px}.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}.hero-pills{display:flex;flex-wrap:wrap;gap:10px}.pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,115,184,.22);padding:10px 14px;border-radius:999px;color:#f1dfd3;font-size:13px;font-weight:800;box-shadow:0 0 18px rgba(255,115,184,.08)}
+
+    .hero-showcase{position:relative;min-height:560px}.phone-card{position:absolute;right:0;top:20px;width:min(100%,380px);background:rgba(255,250,246,.96);color:var(--dark);border-radius:34px;padding:22px;box-shadow:var(--shadow-dark);border:1px solid rgba(255,255,255,.35);overflow:hidden}.phone-card:before{content:"";position:absolute;inset:0 0 auto 0;height:130px;background:linear-gradient(135deg,#ffd1e8,#c28a4a);opacity:.24}.profile{position:relative;display:flex;gap:14px;align-items:center;margin-bottom:18px}.avatar{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff 0 34%,#f7dfd7 35% 64%,#c28a4a 65%);box-shadow:0 12px 30px rgba(194,138,74,.22);font-family:Georgia,serif;font-weight:800;color:#4a2b1e}.profile h3{font-size:21px;line-height:1.1}.profile span{font-size:13px;color:var(--muted)}.rating-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:18px;margin:14px 0;box-shadow:0 10px 30px rgba(53,34,22,.06)}.rating-card strong{display:block;font-size:34px;line-height:1}.stars{color:#f0a800;letter-spacing:2px;margin:4px 0}.mini-list{display:grid;gap:10px;margin-top:16px}.mini-item{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 14px}.mini-item span{color:var(--muted);font-size:13px}.hero-floating{position:absolute;left:18px;bottom:70px;width:270px;background:rgba(29,19,15,.86);border:1px solid rgba(255,115,184,.22);border-radius:26px;padding:18px;color:#fff;box-shadow:var(--shadow-dark),0 0 28px rgba(255,115,184,.12);backdrop-filter:blur(12px)}.hero-floating strong{display:block;font-size:20px;margin-bottom:8px}.hero-floating p{color:#ead8cb;font-size:14px}.hero-floating .btn{width:100%;margin-top:14px;min-height:42px}
+
+    .vitrine{background:linear-gradient(180deg,#130d0b 0%,#1c120f 100%);padding:34px 0 26px;overflow:hidden;position:relative}.vitrine:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,115,184,.12),transparent 20%),radial-gradient(circle at 86% 68%,rgba(194,138,74,.16),transparent 24%);pointer-events:none}.vitrine-head{position:relative;z-index:1;display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px;color:#fff}.vitrine-head h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(26px,3.6vw,42px);line-height:1.05;font-weight:500;letter-spacing:-1px}.vitrine-head p{color:#dbc7bc;max-width:520px;font-size:15px}.vitrine-wrap{position:relative;z-index:1;mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent)}.vitrine-track{display:flex;gap:16px;width:max-content;animation:vitrineSlide 36s linear infinite}.vitrine:hover .vitrine-track{animation-play-state:paused}@keyframes vitrineSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .vitrine-card{flex:0 0 320px;height:410px;border-radius:28px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.10);box-shadow:0 16px 42px rgba(0,0,0,.26);background:#2a1b17}.vitrine-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.58)),var(--bgimg);background-size:cover;background-position:center;transition:.45s ease}.vitrine-card:hover::before{transform:scale(1.06)}.vitrine-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(16,9,7,.78) 100%)}.vitrine-info{position:absolute;z-index:2;left:20px;right:20px;bottom:20px;color:#fff}.vitrine-info small{display:block;color:#ffd2ea;text-transform:uppercase;letter-spacing:1.7px;font-size:11px;font-weight:900;margin-bottom:8px}.vitrine-info strong{display:block;font-size:24px;line-height:1.08;margin-bottom:8px}.vitrine-info span{display:block;color:#ead7cc;font-size:14px}
+    .v1{--bgimg:url('imagens/cabelo-corte.jpg')}.v2{--bgimg:url('imagens/cabelo-mechas.jpg')}.v3{--bgimg:url('imagens/cabelo-luzes.jpg')}.v4{--bgimg:url('imagens/cabelo-escova.jpg')}.v5{--bgimg:url('imagens/cabelo-tratamento.jpg')}.v6{--bgimg:url('imagens/cabelo-finalizacao.jpg')}
+
+    .stats-strip{position:relative;z-index:3;background:var(--cream);padding:46px 0 0}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(29,19,15,.12);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}.stat{background:rgba(255,250,246,.96);padding:22px}.stat strong{display:block;font-size:26px;line-height:1}.stat span{display:block;color:var(--muted);font-size:13px;margin-top:8px}
+
+    section{padding:90px 0}.section-head{display:grid;grid-template-columns:.9fr 1.1fr;align-items:end;gap:32px;margin-bottom:36px}.label{display:inline-flex;align-items:center;gap:10px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900;margin-bottom:12px}.label:before{content:"";width:34px;height:1px;background:var(--neon-rose);box-shadow:0 0 12px rgba(255,115,184,.6)}h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(32px,4.2vw,56px);line-height:1.05;font-weight:500;letter-spacing:-1.2px}.section-head p,.muted{color:var(--muted)}
+
+    .services{background:var(--cream)}.service-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}.tab{border:1px solid rgba(255,115,184,.18);background:#fff;color:var(--brown);min-height:44px;padding:0 16px;cursor:pointer;transition:.2s;border-radius:999px;font-weight:850}.tab.active,.tab:hover{background:linear-gradient(135deg,#ff8fc7,#ffd1e8);color:#2a0f1c;box-shadow:0 0 16px rgba(255,115,184,.25)}.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.service{position:relative;background:#fff;border:1px solid var(--line);border-radius:30px;min-height:280px;padding:28px;box-shadow:0 14px 40px rgba(53,34,22,.07);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:.25s}.service:before{content:"";position:absolute;right:-45px;top:-45px;width:120px;height:120px;border-radius:50%;background:rgba(255,115,184,.12)}.service:hover{transform:translateY(-7px);box-shadow:0 0 18px rgba(255,115,184,.16),0 24px 70px rgba(53,34,22,.14)}.service .icon{font-size:34px;margin-bottom:12px}.service .num{color:var(--gold);font-size:12px;letter-spacing:1.7px;font-weight:900;text-transform:uppercase}.service h3{font-size:22px;line-height:1.15;margin:14px 0 10px}.service p{color:var(--muted);font-size:15px}.service a{position:relative;margin-top:24px;color:var(--brown);font-weight:900}
+
+    .signature{background:#fffaf5}.signature-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}.signature-big{border-radius:36px;background:linear-gradient(180deg,rgba(29,19,15,.1),rgba(29,19,15,.62)),url('imagens/cabelo-destaque.jpg') center/cover no-repeat;min-height:540px;box-shadow:var(--shadow);position:relative;overflow:hidden}.signature-big:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 40px rgba(255,115,184,.16);pointer-events:none}.signature-big .caption{position:absolute;left:28px;right:28px;bottom:28px;color:#fff}.signature-big .caption small{display:block;color:#ffe3b1;letter-spacing:2px;text-transform:uppercase;font-size:11px;font-weight:900;margin-bottom:8px}.signature-big .caption strong{font-size:34px;line-height:1.05;font-family:Georgia,serif;font-weight:500}.signature-side{display:grid;gap:14px}.side-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 14px 36px rgba(53,34,22,.07);display:flex;gap:16px;align-items:flex-start;transition:.25s}.side-card:hover{transform:translateY(-4px);box-shadow:0 0 16px rgba(255,115,184,.13),0 18px 42px rgba(53,34,22,.1)}.side-card .badge{width:48px;height:48px;border-radius:18px;display:grid;place-items:center;background:#f6e7dc;color:var(--brown);font-size:24px}.side-card p{color:var(--muted);font-size:15px;margin-top:5px}
+
+    .reviews{background:#fffaf5}.review-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:start}.review-score{background:var(--dark);color:#fff;border-radius:34px;padding:34px;box-shadow:var(--shadow)}.review-score strong{font-size:72px;line-height:1;font-family:Georgia,serif;font-weight:500}.score-stars{color:#ffc857;letter-spacing:3px;font-size:24px;margin:12px 0}.review-list{display:grid;gap:14px}.review{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:0 14px 38px rgba(53,34,22,.07)}.review .stars{color:#ffc857;letter-spacing:2px;margin-bottom:10px}.review p{color:var(--muted);margin-bottom:14px}.review span{color:var(--muted);font-size:13px}
+
+    .booking{background:linear-gradient(135deg,rgba(29,19,15,.94),rgba(113,74,53,.86)),radial-gradient(circle at 18% 38%,rgba(255,115,184,.18),transparent 20%),linear-gradient(135deg,#1d130f,#714a35);color:#fff}.booking-box{display:grid;grid-template-columns:1fr .9fr;gap:28px;align-items:start}.booking-copy p{color:#f0dfd6;font-size:18px;margin-top:18px;max-width:650px}.steps{display:grid;gap:12px;margin-top:24px}.step{display:flex;gap:12px;align-items:center;color:#f5e7dd}.step b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,115,184,.18);color:#fff;box-shadow:0 0 16px rgba(255,115,184,.16)}.form{background:rgba(255,250,246,.98);color:var(--dark);padding:26px;box-shadow:var(--shadow-dark);border-radius:30px}.form h3{font-size:26px;margin-bottom:8px}.form p{color:var(--muted);margin-bottom:18px}.field{display:grid;gap:7px;margin-bottom:13px}.field label{font-size:13px;font-weight:900;color:var(--brown)}.field input,.field select,.field textarea{width:100%;border:1px solid #e3cec2;background:#fff;padding:13px 14px;outline:none;border-radius:14px}.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(255,115,184,.55);box-shadow:0 0 0 4px rgba(255,115,184,.12)}.field textarea{resize:vertical;min-height:92px}.form .btn{width:100%;margin-top:8px}
+
+    .contact{background:#f3e5da}.contact-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.panel{background:#fff;border:1px solid var(--line);padding:28px;border-radius:30px;box-shadow:0 14px 38px rgba(53,34,22,.08)}.contact-list{list-style:none;display:grid;gap:14px;color:var(--muted)}.contact-list b{color:var(--dark)}.map{margin-top:18px;min-height:300px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(135deg,rgba(255,115,184,.10),rgba(194,138,74,.18)),repeating-linear-gradient(0deg,transparent 0 36px,rgba(29,19,15,.06) 37px),repeating-linear-gradient(90deg,transparent 0 36px,rgba(29,19,15,.06) 37px),#fffaf5;display:grid;place-items:center;text-align:center;padding:28px}.map strong{display:block;font-size:26px;margin-bottom:8px}.map span{color:var(--muted)}
+
+    .faq{background:#fffaf5}.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}details{background:#fff;border:1px solid var(--line);padding:20px;border-radius:22px;box-shadow:0 10px 30px rgba(53,34,22,.05)}summary{cursor:pointer;font-weight:900}details p{color:var(--muted);margin-top:12px}.footer{background:var(--dark);color:#f4e4db;padding:46px 0 100px;border-top:3px solid var(--green)}.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px}.footer strong{color:#fff;display:block;margin-bottom:12px;font-size:18px}.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:20px;color:#d6c6bd;font-size:14px}.whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:90;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:54px;padding:0 22px;background:var(--green);color:#06120a;font-weight:900;box-shadow:0 18px 46px rgba(37,211,102,.28);border-radius:999px}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:.65s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:1080px){.services-grid,.stats-grid{grid-template-columns:repeat(2,1fr)}.review-wrap{grid-template-columns:1fr}.hero-grid{grid-template-columns:1fr}.hero-showcase{display:none}.hero:after{opacity:.28}.signature-grid{grid-template-columns:1fr}}
+    @media(max-width:980px){.navlinks,.topbar .btn.primary{display:none}.menu-btn{display:inline-flex}.hero{min-height:auto;padding-top:126px}.section-head,.booking-box,.contact-layout{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}.vitrine-head{display:block}.vitrine-head p{margin-top:10px}}
+    @media(max-width:620px){.container{width:min(100% - 24px,var(--max))}.brand{min-width:auto}.brand small{display:none}.logo{width:48px;height:48px}.hero-actions .btn{width:100%}.stats-grid,.services-grid{grid-template-columns:1fr}section{padding:64px 0}.whatsapp-float{left:12px;right:12px}.signature-big{min-height:380px}.stats-strip{padding-top:30px}.hero{padding-bottom:56px}.nav{height:72px}.mobile-menu{top:72px}.vitrine{padding:24px 0 16px}.vitrine-card{flex:0 0 260px;height:340px}.vitrine-info strong{font-size:20px}}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <strong>Studio Beleza Renovada</strong>
+          <small>Cabelos • Mechas • Tratamentos</small>
+        </div>
+      </a>
+
+      <nav class="navlinks">
+        <a href="#vitrine">Vitrine</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#agendamento">Agendamento</a>
+      </nav>
+
+      <a class="btn primary" href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20Studio%20Beleza%20Renovada%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20cabelo." target="_blank" rel="noreferrer">Agendar Horário</a>
+      <button class="btn dark menu-btn" id="menuBtn" type="button">☰</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#vitrine">Vitrine</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#agendamento">Agendamento</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="kicker">Cabelos em Santo André</div>
+          <h1>Transforme seu cabelo com cuidado, brilho e acabamento profissional</h1>
+          <p class="lead">Cortes, escova, mechas, luzes, hidratação e tratamentos capilares em um studio elegante, acolhedor e feito para facilitar seu agendamento.</p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20Studio%20Beleza%20Renovada%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20cabelo." target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a>
+            <a class="btn dark" href="#vitrine">Ver cabelos</a>
+          </div>
+
+          <div class="hero-pills">
+            <span class="pill">Cortes</span>
+            <span class="pill">Escova</span>
+            <span class="pill">Mechas</span>
+            <span class="pill">Luzes</span>
+            <span class="pill">Tratamentos</span>
+          </div>
+        </div>
+
+        <div class="hero-showcase reveal">
+          <div class="phone-card">
+            <div class="profile">
+              <div class="avatar">BR</div>
+              <div>
+                <h3>Studio Beleza Renovada</h3>
+                <span>Cabelos • Vila Alzira</span>
+              </div>
+            </div>
+
+            <div class="rating-card">
+              <strong>5,0</strong>
+              <div class="stars">★★★★★</div>
+              <span>3 avaliações no Google</span>
+            </div>
+
+            <div class="mini-list">
+              <div class="mini-item"><b>Corte</b><span>Agendar</span></div>
+              <div class="mini-item"><b>Mechas</b><span>Agendar</span></div>
+              <div class="mini-item"><b>Tratamento</b><span>Agendar</span></div>
+            </div>
+          </div>
+
+          <div class="hero-floating">
+            <strong>Cuidado capilar até 19h</strong>
+            <p>Escolha o serviço de cabelo e envie uma mensagem pronta pelo WhatsApp.</p>
+            <a class="btn primary" href="#agendamento">Pré-agendar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vitrine" id="vitrine">
+      <div class="container">
+        <div class="vitrine-head reveal">
+          <div>
+            <div class="label">Vitrine de cabelos</div>
+            <h2>Cabelos que chamam atenção logo no primeiro olhar</h2>
+          </div>
+          <p>Uma vitrine em movimento com fotos focadas apenas em cabelo: cortes, mechas, luzes, escova, tratamento e finalização.</p>
+        </div>
+      </div>
+
+      <div class="vitrine-wrap">
+        <div class="vitrine-track">
+          <article class="vitrine-card v1"><div class="vitrine-info"><small>Corte</small><strong>Corte com estilo e leveza</strong><span>Visual moderno e acabamento profissional.</span></div></article>
+          <article class="vitrine-card v2"><div class="vitrine-info"><small>Mechas</small><strong>Mechas iluminadas</strong><span>Contraste elegante para valorizar os fios.</span></div></article>
+          <article class="vitrine-card v3"><div class="vitrine-info"><small>Luzes</small><strong>Luzes com brilho natural</strong><span>Iluminação dos fios com sofisticação.</span></div></article>
+          <article class="vitrine-card v4"><div class="vitrine-info"><small>Escova</small><strong>Finalização alinhada</strong><span>Fios com movimento, brilho e leveza.</span></div></article>
+          <article class="vitrine-card v5"><div class="vitrine-info"><small>Tratamento</small><strong>Hidratação e recuperação</strong><span>Cuidado para fios mais bonitos e saudáveis.</span></div></article>
+          <article class="vitrine-card v6"><div class="vitrine-info"><small>Finalização</small><strong>Resultado de salão</strong><span>Acabamento para realçar a beleza do cabelo.</span></div></article>
+
+          <article class="vitrine-card v1"><div class="vitrine-info"><small>Corte</small><strong>Corte com estilo e leveza</strong><span>Visual moderno e acabamento profissional.</span></div></article>
+          <article class="vitrine-card v2"><div class="vitrine-info"><small>Mechas</small><strong>Mechas iluminadas</strong><span>Contraste elegante para valorizar os fios.</span></div></article>
+          <article class="vitrine-card v3"><div class="vitrine-info"><small>Luzes</small><strong>Luzes com brilho natural</strong><span>Iluminação dos fios com sofisticação.</span></div></article>
+          <article class="vitrine-card v4"><div class="vitrine-info"><small>Escova</small><strong>Finalização alinhada</strong><span>Fios com movimento, brilho e leveza.</span></div></article>
+          <article class="vitrine-card v5"><div class="vitrine-info"><small>Tratamento</small><strong>Hidratação e recuperação</strong><span>Cuidado para fios mais bonitos e saudáveis.</span></div></article>
+          <article class="vitrine-card v6"><div class="vitrine-info"><small>Finalização</small><strong>Resultado de salão</strong><span>Acabamento para realçar a beleza do cabelo.</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat"><strong>5,0 ★</strong><span>Avaliação no Google</span></div>
+        <div class="stat"><strong>Vila Alzira</strong><span>Santo André - SP</span></div>
+        <div class="stat"><strong>19:00</strong><span>Horário de fechamento</span></div>
+        <div class="stat"><strong>WhatsApp</strong><span>Agendamento rápido</span></div>
+      </div>
+    </div>
+
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="label">Serviços capilares</div>
+            <h2>Escolha o cuidado ideal para o seu cabelo</h2>
+          </div>
+          <p>Serviços focados em cabelo, com botões que levam a cliente direto para o WhatsApp com a intenção do agendamento.</p>
+        </div>
+
+        <div class="service-nav reveal">
+          <button class="tab active" data-filter="all">Todos</button>
+          <button class="tab" data-filter="corte">Cortes</button>
+          <button class="tab" data-filter="cor">Coloração</button>
+          <button class="tab" data-filter="tratamento">Tratamentos</button>
+        </div>
+
+        <div class="services-grid reveal">
+          <article class="service" data-category="corte"><div><div class="icon">💇‍♀️</div><span class="num">Serviço 01</span><h3>Corte feminino</h3><p>Corte personalizado para valorizar o rosto, o estilo e o movimento dos fios.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20corte%20feminino." target="_blank" rel="noreferrer">Agendar →</a></article>
+          <article class="service" data-category="corte"><div><div class="icon">✨</div><span class="num">Serviço 02</span><h3>Escova e finalização</h3><p>Fios alinhados, brilho, movimento e acabamento de salão.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20escova%20e%20finaliza%C3%A7%C3%A3o." target="_blank" rel="noreferrer">Agendar →</a></article>
+          <article class="service" data-category="cor"><div><div class="icon">🌟</div><span class="num">Serviço 03</span><h3>Mechas</h3><p>Iluminação dos fios com contraste elegante e acabamento profissional.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20mechas." target="_blank" rel="noreferrer">Agendar →</a></article>
+          <article class="service" data-category="cor"><div><div class="icon">🤎</div><span class="num">Serviço 04</span><h3>Luzes</h3><p>Luzes para trazer brilho, leveza e sofisticação ao visual.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20luzes." target="_blank" rel="noreferrer">Agendar →</a></article>
+          <article class="service" data-category="cor"><div><div class="icon">🎨</div><span class="num">Serviço 05</span><h3>Coloração</h3><p>Renovação da cor com cuidado e acabamento bonito.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20colora%C3%A7%C3%A3o." target="_blank" rel="noreferrer">Agendar →</a></article>
+          <article class="service" data-category="tratamento"><div><div class="icon">💧</div><span class="num">Serviço 06</span><h3>Hidratação</h3><p>Tratamento para deixar os fios mais macios, leves e brilhantes.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20hidrata%C3%A7%C3%A3o%20capilar." target="_blank" rel="noreferrer">Agendar →</a></article>
+          <article class="service" data-category="tratamento"><div><div class="icon">🧴</div><span class="num">Serviço 07</span><h3>Reconstrução capilar</h3><p>Cuidado para recuperar fios fragilizados e melhorar a resistência.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20reconstru%C3%A7%C3%A3o%20capilar." target="_blank" rel="noreferrer">Agendar →</a></article>
+          <article class="service" data-category="tratamento"><div><div class="icon">👑</div><span class="num">Serviço 08</span><h3>Cronograma capilar</h3><p>Cuidados planejados para hidratação, nutrição e reconstrução dos fios.</p></div><a href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20cronograma%20capilar." target="_blank" rel="noreferrer">Agendar →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="signature" id="diferenciais">
+      <div class="container signature-grid">
+        <div class="signature-big reveal">
+          <div class="caption">
+            <small>Destaque capilar</small>
+            <strong>Um visual elegante para apresentar os resultados de cabelo com autoridade</strong>
+          </div>
+        </div>
+
+        <div class="signature-side reveal">
+          <div class="side-card"><div class="badge">💇‍♀️</div><div><h3>Foco em cabelos</h3><p>Vitrine preparada para mostrar cortes, mechas, luzes e tratamentos.</p></div></div>
+          <div class="side-card"><div class="badge">📲</div><div><h3>Agendamento inteligente</h3><p>O formulário gera uma mensagem pronta com serviço, dia e observação.</p></div></div>
+          <div class="side-card"><div class="badge">⭐</div><div><h3>Confiança imediata</h3><p>Avaliações reais do Google logo no site para aumentar credibilidade.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="avaliacoes">
+      <div class="container review-wrap">
+        <div class="review-score reveal">
+          <div class="label">Avaliações</div>
+          <strong>5,0</strong>
+          <div class="score-stars">★★★★★</div>
+          <p>Studio Beleza Renovada aparece no Google com avaliação máxima e comentários positivos sobre atendimento e profissionalismo.</p>
+        </div>
+
+        <div class="review-list reveal">
+          <article class="review"><div class="stars">★★★★★</div><p>“Excelente profissional. Atenciosa!”</p><strong>Sol Farias</strong><span>Avaliação no Google</span></article>
+          <article class="review"><div class="stars">★★★★★</div><p>“Salão excelente! Ótima profissional.”</p><strong>Murillo Henrique</strong><span>Avaliação no Google</span></article>
+          <article class="review"><div class="stars">★★★★★</div><p>Serviços de salão de beleza, shampoo, condicionador, embelezamento e cuidados.</p><strong>Eliane Andrade Neves</strong><span>Avaliação no Google</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="agendamento">
+      <div class="container booking-box">
+        <div class="booking-copy reveal">
+          <div class="label">Agendamento</div>
+          <h2>Agende seu horário pelo WhatsApp</h2>
+          <p>Escolha o serviço de cabelo, informe o melhor dia/horário e envie uma mensagem pronta para o Studio Beleza Renovada.</p>
+          <div class="steps">
+            <div class="step"><b>1</b><span>Escolha o serviço capilar</span></div>
+            <div class="step"><b>2</b><span>Informe o melhor dia e horário</span></div>
+            <div class="step"><b>3</b><span>Envie tudo pelo WhatsApp</span></div>
+          </div>
+        </div>
+
+        <form class="form reveal" id="bookingForm">
+          <h3>Pré-agendamento</h3>
+          <p>Preencha para gerar uma mensagem automática.</p>
+
+          <div class="field"><label for="name">Nome</label><input id="name" type="text" placeholder="Seu nome" /></div>
+          <div class="field"><label for="service">Serviço desejado</label><select id="service"><option>Corte feminino</option><option>Escova e finalização</option><option>Mechas</option><option>Luzes</option><option>Coloração</option><option>Hidratação</option><option>Reconstrução capilar</option><option>Cronograma capilar</option></select></div>
+          <div class="field"><label for="date">Melhor dia/horário</label><input id="date" type="text" placeholder="Ex: terça à tarde, sábado de manhã..." /></div>
+          <div class="field"><label for="details">Observação</label><textarea id="details" placeholder="Ex: quero tirar dúvida sobre valor, duração, disponibilidade..."></textarea></div>
+          <button class="btn whats" type="submit">Enviar agendamento</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="label">Contato</div><h2>Localização e atendimento direto</h2></div>
+          <p>Tudo que a cliente precisa para encontrar o salão e agendar com facilidade.</p>
+        </div>
+
+        <div class="contact-layout reveal">
+          <div class="panel"><h3>Studio Beleza Renovada</h3><div class="stars">★★★★★</div><p class="muted">Salão de beleza com 5,0 estrelas no Google e atendimento em Santo André.</p></div>
+          <div class="panel"><h3>Informações</h3><ul class="contact-list"><li><b>Endereço:</b> R. Carijós, 751 - Vila Alzira, Santo André - SP, 09175-020</li><li><b>WhatsApp:</b> (11) 95461-6979</li><li><b>Categoria:</b> Salão de Beleza</li><li><b>Horário:</b> Aberto • Fecha às 19:00</li><li><b>Plus Code:</b> 8FFH+4R Vila Alzira, Santo André - SP</li></ul><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=R.%20Carij%C3%B3s%2C%20751%20Vila%20Alzira%20Santo%20Andr%C3%A9%20SP" target="_blank" rel="noreferrer">Abrir no Maps</a><a class="btn dark" href="tel:+5511954616979">Ligar agora</a></div></div>
+        </div>
+
+        <div class="map reveal"><div><strong>Vila Alzira, Santo André</strong><span>R. Carijós, 751 — atendimento para beleza e estética</span></div></div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container"><div class="section-head reveal"><div><div class="label">Dúvidas comuns</div><h2>Perguntas frequentes</h2></div><p>Respostas rápidas para facilitar a decisão da cliente antes de agendar.</p></div><div class="faq-grid reveal"><details open><summary>Como faço para agendar?</summary><p>Clique em qualquer botão de WhatsApp, escolha o serviço desejado e envie o melhor dia/horário.</p></details><details><summary>Quais serviços de cabelo aparecem no site?</summary><p>Corte feminino, escova, mechas, luzes, coloração, hidratação, reconstrução e cronograma capilar.</p></details><details><summary>Onde fica o Studio Beleza Renovada?</summary><p>R. Carijós, 751 - Vila Alzira, Santo André - SP, 09175-020.</p></details><details><summary>Posso tirar dúvidas antes de agendar?</summary><p>Sim. O formulário e os botões abrem o WhatsApp para tirar dúvidas sobre valores, disponibilidade e serviços.</p></details></div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid"><div><strong>Studio Beleza Renovada</strong><p>Cortes, mechas, luzes, escova e tratamentos capilares.</p></div><div><strong>Contato</strong><p>WhatsApp: <a href="https://wa.me/5511954616979" target="_blank" rel="noreferrer">(11) 95461-6979</a></p><p>Categoria: Salão de Beleza</p></div><div><strong>Endereço</strong><p>R. Carijós, 751 - Vila Alzira, Santo André - SP</p></div></div><div class="container copy">© <span id="year"></span> Studio Beleza Renovada. Todos os direitos reservados.</div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5511954616979?text=Ol%C3%A1%2C%20vim%20pelo%20site%20do%20Studio%20Beleza%20Renovada%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20cabelo." target="_blank" rel="noreferrer">💬 Agendar cabelo</a>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn');const mobileMenu=document.getElementById('mobileMenu');menuBtn?.addEventListener('click',()=>mobileMenu.classList.toggle('open'));mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+    document.querySelectorAll('.tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');const filter=tab.dataset.filter;document.querySelectorAll('.service').forEach(card=>{card.style.display=filter==='all'||card.dataset.category===filter?'flex':'none'})})});
+    document.getElementById('bookingForm')?.addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('name').value.trim()||'Cliente';const service=document.getElementById('service').value;const date=document.getElementById('date').value.trim()||'Gostaria de verificar os horários disponíveis.';const details=document.getElementById('details').value.trim()||'Sem observações.';const msg=`Olá, meu nome é ${name}. Vim pelo site do Studio Beleza Renovada e gostaria de agendar: ${service}. Melhor dia/horário: ${date}. Observação: ${details}`;window.open(`https://wa.me/5511954616979?text=${encodeURIComponent(msg)}`,'_blank')});
+    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
