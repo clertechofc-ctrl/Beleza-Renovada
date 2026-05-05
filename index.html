@@ -1,335 +1,296 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aline Damião Nails | Manicure, Alongamento e Esmaltação em Gel</title>
-  <meta name="description" content="Aline Damião Nails em Jundiaí - SP. Manicure, alongamento, blindagem, esmaltação em gel, cursos e agendamentos pelo WhatsApp." />
-
-  <style>
-    :root{
-      --bg:#120d10;
-      --bg2:#1d1418;
-      --card:#261b21;
-      --soft:#f8efe9;
-      --text:#fff9f4;
-      --muted:#d7c3bb;
-      --line:rgba(255,255,255,.12);
-      --rose:#dca5aa;
-      --rose2:#f2c7c7;
-      --gold:#d8b56d;
-      --wine:#6f263a;
-      --whats:#25d366;
-      --shadow:0 28px 80px rgba(0,0,0,.42);
-      --max:1180px;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-    a{text-decoration:none;color:inherit}
-    button,input,select,textarea{font:inherit}
-    .container{width:min(100% - 34px,var(--max));margin:0 auto}
-
-    .topbar{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(18,13,16,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
-    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
-    .brand{display:flex;align-items:center;gap:14px;min-width:245px}
-    .logo{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;position:relative;background:linear-gradient(135deg,var(--rose2),#fff7f2 46%,var(--gold));box-shadow:0 12px 34px rgba(220,165,170,.25);color:#44222a;font-family:Georgia,serif;font-size:24px;font-weight:700;overflow:hidden}
-    .logo:after{content:"";position:absolute;inset:7px;border:1px solid rgba(68,34,42,.25);border-radius:50%}
-    .brand strong{display:block;font-size:17px;line-height:1.1}
-    .brand small{display:block;margin-top:4px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1.5px}
-    .navlinks{display:flex;align-items:center;gap:26px;color:#f2dfd8;font-size:14px}
-    .navlinks a{opacity:.76;transition:.2s}.navlinks a:hover{opacity:1;color:#fff}
-
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;font-weight:800;cursor:pointer;transition:.25s;white-space:nowrap;border-radius:999px}
-    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
-    .btn.primary{background:linear-gradient(135deg,var(--rose),var(--rose2));color:#351a21;border-color:transparent;box-shadow:0 16px 34px rgba(220,165,170,.25)}
-    .btn.whats{background:var(--whats);color:#07150c;border-color:transparent}
-    .btn.dark{background:rgba(0,0,0,.23)}
-    .menu-btn{display:none;width:48px;padding:0}
-    .mobile-menu{display:none;position:fixed;top:78px;left:0;right:0;background:rgba(18,13,16,.98);border-bottom:1px solid var(--line);padding:16px 24px}
-    .mobile-menu.open{display:block}
-    .mobile-menu a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:#fff}
-
-    .hero{min-height:100vh;display:flex;align-items:center;padding:126px 0 72px;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(18,13,16,.98),rgba(18,13,16,.82) 44%,rgba(18,13,16,.38)),linear-gradient(180deg,rgba(18,13,16,.08),#120d10 96%),url('imagens/unha-hero.jpg') center/cover no-repeat,linear-gradient(120deg,#21171c,#110c10)}
-    .hero:before{content:"";position:absolute;right:0;top:78px;bottom:0;width:52%;background:linear-gradient(135deg,rgba(255,255,255,.10) 0 7%,transparent 7% 17%,rgba(242,199,199,.18) 17% 21%,transparent 21% 34%,rgba(255,255,255,.12) 34% 39%,transparent 39%),radial-gradient(circle at 62% 36%,rgba(255,245,240,.28),transparent 12%),radial-gradient(circle at 76% 48%,rgba(216,181,109,.25),transparent 10%),linear-gradient(180deg,#38232a,#191016);clip-path:polygon(12% 0,100% 0,100% 100%,0 100%);opacity:.90}
-    .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent)}
-    .hero-content{position:relative;z-index:2;max-width:760px}
-    .kicker{display:inline-flex;align-items:center;gap:12px;color:#f8e8e3;text-transform:uppercase;letter-spacing:2.6px;font-size:12px;font-weight:900;margin-bottom:24px}
-    .kicker:before{content:"";width:46px;height:1px;background:var(--gold)}
-    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,6.2vw,84px);font-weight:500;line-height:.98;letter-spacing:-2.2px;margin-bottom:22px}
-    .lead{color:#ead5ce;font-size:clamp(17px,2vw,22px);max-width:680px;margin-bottom:30px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
-    .hero-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;width:min(100%,720px);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
-    .hero-stat{padding:20px;background:rgba(24,16,20,.76);backdrop-filter:blur(8px)}
-    .hero-stat strong{display:block;font-size:22px;line-height:1}
-    .hero-stat span{display:block;margin-top:7px;color:var(--muted);font-size:13px}
-
-    section{padding:90px 0}
-    .section-head{display:grid;grid-template-columns:.88fr 1.12fr;align-items:end;gap:32px;margin-bottom:38px}
-    .label{display:inline-flex;align-items:center;gap:10px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900;margin-bottom:12px}
-    .label:before{content:"";width:34px;height:1px;background:var(--gold)}
-    h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(32px,4.4vw,58px);line-height:1.05;font-weight:500;letter-spacing:-1.2px}
-    .section-head p,.muted{color:var(--muted)}
-
-    .gallery{background:#120d10}
-    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .work{position:relative;min-height:330px;border:1px solid rgba(255,255,255,.10);overflow:hidden;background:#21161b}
-    .work:nth-child(1){grid-column:span 2}
-    .work:nth-child(4){grid-column:span 2}
-    .work:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.70)),var(--art);background-size:cover;background-position:center;transition:.55s}
-    .work:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.15))}
-    .work:hover:before{transform:scale(1.06);filter:brightness(1.08)}
-    .work-info{position:absolute;z-index:2;left:22px;right:22px;bottom:22px;transition:.3s;transform:translateY(8px)}
-    .work:hover .work-info{transform:translateY(0)}
-    .work-info small{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:1.8px;font-size:11px;margin-bottom:8px}
-    .work-info strong{font-size:22px;line-height:1.1}
-
-    /* FOTOS REAIS: suba esses arquivos dentro da pasta imagens no GitHub */
-    .art1{--art:url('imagens/unha-alongamento.jpg')}
-    .art2{--art:url('imagens/unha-gel.jpg')}
-    .art3{--art:url('imagens/unha-blindagem.jpg')}
-    .art4{--art:url('imagens/unha-design.jpg')}
-    .art5{--art:url('imagens/unha-clientes.jpg')}
-    .art6{--art:url('imagens/unha-manicure.jpg')}
-
-    .about{background:linear-gradient(180deg,#120d10,#1b1217)}
-    .about-layout{display:grid;grid-template-columns:.96fr 1.04fr;gap:38px;align-items:center}
-    .about-photo{min-height:520px;border:1px solid var(--line);box-shadow:var(--shadow);background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.50)),url('imagens/unha-destaque.jpg') center/cover no-repeat,linear-gradient(135deg,#4b2c36,#161014)}
-    .about-card{border-left:3px solid var(--gold);padding:32px 0 32px 34px}
-    .about-card p{color:#ead5ce;margin-top:18px;font-size:17px}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-    .feature{border:1px solid var(--line);background:rgba(255,255,255,.04);padding:20px}
-    .feature strong{display:block;margin-bottom:8px}
-    .feature span{color:var(--muted);font-size:14px}
-
-    .services{background:#1b1217}
-    .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
-    .tab{border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);min-height:42px;padding:0 16px;cursor:pointer;transition:.2s;border-radius:999px}
-    .tab.active,.tab:hover{background:var(--soft);color:#321b22}
-    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.10)}
-    .service{background:#20161b;min-height:250px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
-    .service:hover{background:#2a1c23;transform:translateY(-4px)}
-    .service .num{color:var(--gold);font-size:13px;letter-spacing:1px;font-weight:900}
-    .service h3{font-size:22px;line-height:1.15;margin:18px 0 10px}
-    .service p{color:var(--muted);font-size:15px}
-    .service a{margin-top:24px;color:#fff3ed;font-weight:900}
-
-    .booking{background:linear-gradient(90deg,rgba(18,13,16,.96),rgba(18,13,16,.78)),radial-gradient(circle at 20% 40%,rgba(242,199,199,.20),transparent 20%),linear-gradient(135deg,#2b1a21,#120d10);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .booking-box{display:grid;grid-template-columns:1fr .86fr;gap:28px;align-items:start}
-    .booking-copy p{color:#ead5ce;font-size:18px;margin-top:18px;max-width:650px}
-    .form{background:rgba(255,249,244,.98);color:#321b22;padding:26px;box-shadow:var(--shadow);border-radius:18px}
-    .form h3{font-size:26px;margin-bottom:8px}
-    .form p{color:#725d62;margin-bottom:18px}
-    .field{display:grid;gap:7px;margin-bottom:13px}
-    .field label{font-size:13px;font-weight:900;color:#4a2932}
-    .field input,.field select,.field textarea{width:100%;border:1px solid #e7d3cc;background:#fff;padding:13px 14px;outline:none;border-radius:10px}
-    .field textarea{resize:vertical;min-height:92px}
-    .form .btn{width:100%;margin-top:8px;border-radius:999px}
-
-    .trust{background:#120d10}
-    .trust-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
-    .panel{background:#20161b;border:1px solid var(--line);padding:30px;border-radius:18px}
-    .stars{color:#ffc857;letter-spacing:2px;font-size:22px;margin:12px 0}
-    .contact-list{list-style:none;display:grid;gap:14px;color:var(--muted)}
-    .contact-list b{color:#fff}
-    .faq{background:#1b1217}
-    .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    details{background:#20161b;border:1px solid var(--line);padding:20px;border-radius:18px}
-    summary{cursor:pointer;font-weight:900}
-    details p{color:var(--muted);margin-top:12px}
-    .footer{background:#0d090b;border-top:3px solid var(--whats);padding:46px 0 100px}
-    .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;color:#d9c9c2}
-    .footer strong{color:#fff;display:block;margin-bottom:12px;font-size:18px}
-    .copy{border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:20px;color:#b9a8a1;font-size:14px}
-    .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:49;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:54px;padding:0 22px;background:var(--whats);color:#06120a;font-weight:900;box-shadow:0 18px 46px rgba(37,211,102,.28);border-radius:999px}
-
-    @media(max-width:980px){.navlinks,.topbar .btn.primary{display:none}.menu-btn{display:inline-flex}.hero{min-height:auto;padding-top:132px}.hero:before{width:100%;opacity:.32}.hero-bar,.section-head,.about-layout,.booking-box,.trust-layout{grid-template-columns:1fr}.features{grid-template-columns:1fr}.gallery-grid,.services-grid{grid-template-columns:repeat(2,1fr)}.work:nth-child(1),.work:nth-child(4){grid-column:span 1}.footer-grid{grid-template-columns:1fr}}
-    @media(max-width:620px){.container{width:min(100% - 24px,var(--max))}.brand{min-width:auto}.brand small{display:none}.logo{width:48px;height:48px}.hero-actions .btn{width:100%}.hero-bar,.gallery-grid,.services-grid,.faq-grid{grid-template-columns:1fr}section{padding:64px 0}.about-card{padding-left:22px}.whatsapp-float{left:12px;right:12px}.work{min-height:270px}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aline Damião Nails | Manicure, Alongamento e Esmaltação em Gel</title>
+<meta name="description" content="Aline Damião Nails em Jundiaí - SP. Manicure, alongamento, blindagem, esmaltação em gel, cursos e agendamentos pelo WhatsApp." />
+<style>
+:root{
+--bg:#120d10; --bg2:#1d1418; --card:#261b21; --soft:#f8efe9; --text:#fff9f4; --muted:#d7c3bb;
+--line:rgba(255,255,255,.12); --rose:#dca5aa; --rose2:#f2c7c7; --gold:#d8b56d; --wine:#6f263a;
+--whats:#25d366; --shadow:0 28px 80px rgba(0,0,0,.42); --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(100% - 34px,var(--max));margin:0 auto}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(18,13,16,.86);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:14px;min-width:245px}
+.logo{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;position:relative;background:linear-gradient(135deg,var(--rose2),#fff7f2 46%,var(--gold));box-shadow:0 12px 34px rgba(220,165,170,.25);color:#44222a;font-family:Georgia,serif;font-size:24px;font-weight:700;overflow:hidden}
+.logo:after{content:"";position:absolute;inset:7px;border:1px solid rgba(68,34,42,.25);border-radius:50%}
+.brand strong{display:block;font-size:17px;line-height:1.1}
+.brand small{display:block;margin-top:4px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1.5px}
+.navlinks{display:flex;align-items:center;gap:26px;color:#f2dfd8;font-size:14px}
+.navlinks a{opacity:.76;transition:.2s}.navlinks a:hover{opacity:1;color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;font-weight:800;cursor:pointer;transition:.25s;white-space:nowrap;border-radius:999px}
+.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+.btn.primary{background:linear-gradient(135deg,var(--rose),var(--rose2));color:#351a21;border-color:transparent;box-shadow:0 16px 34px rgba(220,165,170,.25)}
+.btn.whats{background:var(--whats);color:#07150c;border-color:transparent}
+.btn.dark{background:rgba(0,0,0,.23)}
+.menu-btn{display:none;width:48px;padding:0}
+.mobile-menu{display:none;position:fixed;top:78px;left:0;right:0;background:rgba(18,13,16,.98);border-bottom:1px solid var(--line);padding:16px 24px}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:#fff}
+.hero{min-height:100vh;display:flex;align-items:center;padding:126px 0 72px;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(18,13,16,.98),rgba(18,13,16,.82) 44%,rgba(18,13,16,.38)),linear-gradient(180deg,rgba(18,13,16,.08),#120d10 96%),url('imagens/cabelo-destaque.jpg.webp') center/cover no-repeat,linear-gradient(120deg,#21171c,#110c10)}
+.hero:before{content:"";position:absolute;right:0;top:78px;bottom:0;width:52%;background:linear-gradient(135deg,rgba(255,255,255,.10) 0 7%,transparent 7% 17%,rgba(242,199,199,.18) 17% 21%,transparent 21% 34%,rgba(255,255,255,.12) 34% 39%,transparent 39%),radial-gradient(circle at 62% 36%,rgba(255,245,240,.28),transparent 12%),radial-gradient(circle at 76% 48%,rgba(216,181,109,.25),transparent 10%),linear-gradient(180deg,#38232a,#191016);clip-path:polygon(12% 0,100% 0,100% 100%,0 100%);opacity:.90}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent)}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.kicker{display:inline-flex;align-items:center;gap:12px;color:#f8e8e3;text-transform:uppercase;letter-spacing:2.6px;font-size:12px;font-weight:900;margin-bottom:24px}
+.kicker:before{content:"";width:46px;height:1px;background:var(--gold)}
+h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,6.2vw,84px);font-weight:500;line-height:.98;letter-spacing:-2.2px;margin-bottom:22px}
+.lead{color:#ead5ce;font-size:clamp(17px,2vw,22px);max-width:680px;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.hero-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;width:min(100%,720px);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
+.hero-stat{padding:20px;background:rgba(24,16,20,.76);backdrop-filter:blur(8px)}
+.hero-stat strong{display:block;font-size:22px;line-height:1}
+.hero-stat span{display:block;margin-top:7px;color:var(--muted);font-size:13px}
+section{padding:90px 0}
+.section-head{display:grid;grid-template-columns:.88fr 1.12fr;align-items:end;gap:32px;margin-bottom:38px}
+.label{display:inline-flex;align-items:center;gap:10px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900;margin-bottom:12px}
+.label:before{content:"";width:34px;height:1px;background:var(--gold)}
+h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(32px,4.4vw,58px);line-height:1.05;font-weight:500;letter-spacing:-1.2px}
+.section-head p,.muted{color:var(--muted)}
+.gallery{background:#120d10}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.work{position:relative;min-height:330px;border:1px solid rgba(255,255,255,.10);overflow:hidden;background:#21161b}
+.work:nth-child(1){grid-column:span 2}
+.work:nth-child(4){grid-column:span 2}
+.work:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.70)),var(--art);background-size:cover;background-position:center;transition:.55s}
+.work:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.15))}
+.work:hover:before{transform:scale(1.06);filter:brightness(1.08)}
+.work-info{position:absolute;z-index:2;left:22px;right:22px;bottom:22px;transition:.3s;transform:translateY(8px)}
+.work:hover .work-info{transform:translateY(0)}
+.work-info small{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:1.8px;font-size:11px;margin-bottom:8px}
+.work-info strong{font-size:22px;line-height:1.1}
+/* FOTOS REAIS: arquivos da pasta imagens */
+.art1{--art:url('imagens/cabelo-corte.jpg.webp')}
+.art2{--art:url('imagens/cabelo-escova.jpg.webp')}
+.art3{--art:url('imagens/cabelo-luzes.jpg.webp')}
+.art4{--art:url('imagens/cabelo-mechas.jpg.webp')}
+.art5{--art:url('imagens/cabelo-tratamento.jpg.webp')}
+.art6{--art:url('imagens/cabelo-destaque.jpg.webp')}
+.about{background:linear-gradient(180deg,#120d10,#1b1217)}
+.about-layout{display:grid;grid-template-columns:.96fr 1.04fr;gap:38px;align-items:center}
+.about-photo{min-height:520px;border:1px solid var(--line);box-shadow:var(--shadow);background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.50)),url('imagens/cabelo-finalizacao.jpg.jpg') center/cover no-repeat,linear-gradient(135deg,#4b2c36,#161014)}
+.about-card{border-left:3px solid var(--gold);padding:32px 0 32px 34px}
+.about-card p{color:#ead5ce;margin-top:18px;font-size:17px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.feature{border:1px solid var(--line);background:rgba(255,255,255,.04);padding:20px}
+.feature strong{display:block;margin-bottom:8px}
+.feature span{color:var(--muted);font-size:14px}
+.services{background:#1b1217}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.tab{border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);min-height:42px;padding:0 16px;cursor:pointer;transition:.2s;border-radius:999px}
+.tab.active,.tab:hover{background:var(--soft);color:#321b22}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.10)}
+.service{background:#20161b;min-height:250px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+.service:hover{background:#2a1c23;transform:translateY(-4px)}
+.service .num{color:var(--gold);font-size:13px;letter-spacing:1px;font-weight:900}
+.service h3{font-size:22px;line-height:1.15;margin:18px 0 10px}
+.service p{color:var(--muted);font-size:15px}
+.service a{margin-top:24px;color:#fff3ed;font-weight:900}
+.booking{background:linear-gradient(90deg,rgba(18,13,16,.96),rgba(18,13,16,.78)),radial-gradient(circle at 20% 40%,rgba(242,199,199,.20),transparent 20%),linear-gradient(135deg,#2b1a21,#120d10);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.booking-box{display:grid;grid-template-columns:1fr .86fr;gap:28px;align-items:start}
+.booking-copy p{color:#ead5ce;font-size:18px;margin-top:18px;max-width:650px}
+.form{background:rgba(255,249,244,.98);color:#321b22;padding:26px;box-shadow:var(--shadow);border-radius:18px}
+.form h3{font-size:26px;margin-bottom:8px}
+.form p{color:#725d62;margin-bottom:18px}
+.field{display:grid;gap:7px;margin-bottom:13px}
+.field label{font-size:13px;font-weight:900;color:#4a2932}
+.field input,.field select,.field textarea{width:100%;border:1px solid #e7d3cc;background:#fff;padding:13px 14px;outline:none;border-radius:10px}
+.field textarea{resize:vertical;min-height:92px}
+.form .btn{width:100%;margin-top:8px;border-radius:999px}
+.trust{background:#120d10}
+.trust-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+.panel{background:#20161b;border:1px solid var(--line);padding:30px;border-radius:18px}
+.stars{color:#ffc857;letter-spacing:2px;font-size:22px;margin:12px 0}
+.contact-list{list-style:none;display:grid;gap:14px;color:var(--muted)}
+.contact-list b{color:#fff}
+.faq{background:#1b1217}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+details{background:#20161b;border:1px solid var(--line);padding:20px;border-radius:18px}
+summary{cursor:pointer;font-weight:900}
+details p{color:var(--muted);margin-top:12px}
+.footer{background:#0d090b;border-top:3px solid var(--whats);padding:46px 0 100px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;color:#d9c9c2}
+.footer strong{color:#fff;display:block;margin-bottom:12px;font-size:18px}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:20px;color:#b9a8a1;font-size:14px}
+.whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:49;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:54px;padding:0 22px;background:var(--whats);color:#06120a;font-weight:900;box-shadow:0 18px 46px rgba(37,211,102,.28);border-radius:999px}
+@media(max-width:980px){.navlinks,.topbar .btn.primary{display:none}.menu-btn{display:inline-flex}.hero{min-height:auto;padding-top:132px}.hero:before{width:100%;opacity:.32}.hero-bar,.section-head,.about-layout,.booking-box,.trust-layout{grid-template-columns:1fr}.features{grid-template-columns:1fr}.gallery-grid,.services-grid{grid-template-columns:repeat(2,1fr)}.work:nth-child(1),.work:nth-child(4){grid-column:span 1}.footer-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.container{width:min(100% - 24px,var(--max))}.brand{min-width:auto}.brand small{display:none}.logo{width:48px;height:48px}.hero-actions .btn{width:100%}.hero-bar,.gallery-grid,.services-grid,.faq-grid{grid-template-columns:1fr}section{padding:64px 0}.about-card{padding-left:22px}.whatsapp-float{left:12px;right:12px}.work{min-height:270px}}
+</style>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#inicio" class="brand">
-        <div class="logo">AD</div>
-        <div><strong>Aline Damião Nails</strong><small>Manicure • Gel • Alongamento</small></div>
-      </a>
-      <nav class="navlinks">
-        <a href="#trabalhos">Trabalhos</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#agendamento">Agendamento</a>
-        <a href="#contato">Contato</a>
-      </nav>
-      <a class="btn primary" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">Agendar Horário</a>
-      <button class="btn dark menu-btn" id="menuBtn" type="button">☰</button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#trabalhos">Trabalhos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#agendamento">Agendamento</a>
-      <a href="#contato">Contato</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="container hero-content">
-        <div class="kicker">Manicure em Jundiaí - SP</div>
-        <h1>Unhas elegantes com cuidado, técnica e acabamento premium</h1>
-        <p class="lead">Alongamento, blindagem e esmaltação em gel para quem busca beleza, durabilidade e um atendimento profissional.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a>
-          <a class="btn dark" href="#trabalhos">Ver trabalhos</a>
-        </div>
-        <div class="hero-bar">
-          <div class="hero-stat"><strong>7 anos</strong><span>De experiência na área</span></div>
-          <div class="hero-stat"><strong>9 mil+</strong><span>Seguidores no Instagram</span></div>
-          <div class="hero-stat"><strong>Jundiaí</strong><span>Atendimento local</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery" id="trabalhos">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="label">Portfólio</div><h2>Trabalhos que valorizam cada detalhe</h2></div>
-          <p>Galeria para destacar resultados reais de unhas, esmaltação, blindagem, alongamentos e acabamento. As fotos devem estar na pasta <b>imagens</b> do GitHub.</p>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="work art1"><div class="work-info"><small>Alongamento</small><strong>Formato elegante e natural</strong></div></article>
-          <article class="work art2"><div class="work-info"><small>Gel</small><strong>Esmaltação em gel</strong></div></article>
-          <article class="work art3"><div class="work-info"><small>Blindagem</small><strong>Proteção e brilho</strong></div></article>
-          <article class="work art4"><div class="work-info"><small>Design</small><strong>Acabamento delicado</strong></div></article>
-          <article class="work art5"><div class="work-info"><small>Clientes</small><strong>Resultado sofisticado</strong></div></article>
-          <article class="work art6"><div class="work-info"><small>Manicure</small><strong>Cuidado completo</strong></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="about" id="sobre">
-      <div class="container about-layout">
-        <div class="about-photo"></div>
-        <div class="about-card">
-          <div class="label">Sobre</div>
-          <h2>Aline Damião Nails</h2>
-          <p>Aline Damião atua como manicure em Jundiaí - SP, com experiência em alongamento, blindagem e esmaltação em gel.</p>
-          <p>A proposta do site é facilitar o agendamento, apresentar os serviços de forma profissional e passar mais confiança para novas clientes que chegam pelo Instagram, WhatsApp ou indicações.</p>
-          <div class="features">
-            <div class="feature"><strong>7 anos na área</strong><span>Experiência e prática no atendimento.</span></div>
-            <div class="feature"><strong>Agendamento fácil</strong><span>Cliente escolhe o serviço e chama no WhatsApp.</span></div>
-            <div class="feature"><strong>Cursos e dúvidas</strong><span>Espaço para interessados em formação.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="servicos">
-      <div class="container">
-        <div class="section-head">
-          <div><div class="label">Serviços</div><h2>Escolha o procedimento e agende seu horário</h2></div>
-          <p>Cards simples para a cliente entender os serviços e chamar diretamente no WhatsApp.</p>
-        </div>
-        <div class="tabs">
-          <button class="tab active" data-filter="all">Todos</button>
-          <button class="tab" data-filter="unhas">Unhas</button>
-          <button class="tab" data-filter="gel">Gel</button>
-          <button class="tab" data-filter="formacao">Formação</button>
-        </div>
-        <div class="services-grid">
-          <article class="service" data-category="unhas"><div><span class="num">01</span><h3>Manicure</h3><p>Cuidado completo com as unhas, cutículas, acabamento e esmaltação.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20manicure." target="_blank" rel="noreferrer">Agendar →</a></article>
-          <article class="service" data-category="gel"><div><span class="num">02</span><h3>Esmaltação em gel</h3><p>Brilho, durabilidade e acabamento sofisticado para o dia a dia.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20esmalta%C3%A7%C3%A3o%20em%20gel." target="_blank" rel="noreferrer">Agendar →</a></article>
-          <article class="service" data-category="gel"><div><span class="num">03</span><h3>Alongamento</h3><p>Unhas com formato elegante, personalizado e visual natural.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20alongamento%20de%20unhas." target="_blank" rel="noreferrer">Agendar →</a></article>
-          <article class="service" data-category="gel"><div><span class="num">04</span><h3>Blindagem</h3><p>Proteção para unhas naturais, com mais resistência e brilho.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20blindagem." target="_blank" rel="noreferrer">Agendar →</a></article>
-          <article class="service" data-category="unhas"><div><span class="num">05</span><h3>Manutenção</h3><p>Renovação do alongamento, reparos e acabamento das unhas.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20manuten%C3%A7%C3%A3o%20das%20unhas." target="_blank" rel="noreferrer">Agendar →</a></article>
-          <article class="service" data-category="formacao"><div><span class="num">06</span><h3>Cursos e dúvidas</h3><p>Espaço para interessadas em formação, agenda de cursos e informações.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20cursos%20e%20forma%C3%A7%C3%B5es." target="_blank" rel="noreferrer">Falar sobre cursos →</a></article>
-          <article class="service" data-category="unhas"><div><span class="num">07</span><h3>Nail design</h3><p>Detalhes, combinações e acabamento para deixar as unhas mais exclusivas.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20nail%20design." target="_blank" rel="noreferrer">Agendar →</a></article>
-          <article class="service" data-category="formacao"><div><span class="num">08</span><h3>Esterilização</h3><p>Área para destacar cuidados, higiene e biossegurança no atendimento.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20atendimento." target="_blank" rel="noreferrer">Tirar dúvida →</a></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="booking" id="agendamento">
-      <div class="container booking-box">
-        <div class="booking-copy"><div class="label">Agendamento</div><h2>Agende seu horário pelo WhatsApp</h2><p>Escolha o serviço, informe o melhor dia/horário e o site abre uma mensagem pronta para enviar no WhatsApp.</p></div>
-        <form class="form" id="bookingForm">
-          <h3>Pré-agendamento</h3>
-          <p>Preencha e envie pelo WhatsApp.</p>
-          <div class="field"><label for="name">Nome</label><input id="name" type="text" placeholder="Seu nome" /></div>
-          <div class="field"><label for="service">Serviço desejado</label><select id="service"><option>Manicure</option><option>Esmaltação em gel</option><option>Alongamento</option><option>Blindagem</option><option>Manutenção</option><option>Cursos e dúvidas</option></select></div>
-          <div class="field"><label for="date">Melhor dia/horário</label><input id="date" type="text" placeholder="Ex: sexta à tarde, sábado de manhã..." /></div>
-          <div class="field"><label for="details">Observação</label><textarea id="details" placeholder="Ex: quero alongamento delicado, esmaltação em gel, tirar dúvida sobre valor..."></textarea></div>
-          <button class="btn whats" type="submit">Enviar agendamento</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="trust" id="contato">
-      <div class="container">
-        <div class="section-head"><div><div class="label">Contato</div><h2>Atendimento, localização e redes sociais</h2></div><p>Informações organizadas para facilitar a decisão da cliente antes de agendar.</p></div>
-        <div class="trust-layout">
-          <div class="panel"><h3>Presença no Instagram</h3><div class="stars">★★★★★</div><p class="muted">Perfil com mais de 9 mil seguidores, conteúdos de clientes, cursos, esterilização e formação.</p></div>
-          <div class="panel"><h3>Informações</h3><ul class="contact-list"><li><b>Nome:</b> Aline Damião Nails</li><li><b>Instagram:</b> @allinedamiao.nails</li><li><b>WhatsApp:</b> (11) 97341-3498</li><li><b>Região:</b> Jundiaí - SP</li><li><b>Serviços:</b> Alongamento, blindagem e esmaltação em gel</li></ul><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a class="btn primary" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">Chamar no WhatsApp</a><a class="btn dark" href="https://instagram.com/allinedamiao.nails" target="_blank" rel="noreferrer">Ver Instagram</a></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq" id="faq">
-      <div class="container">
-        <div class="section-head"><div><div class="label">Dúvidas comuns</div><h2>Perguntas frequentes</h2></div><p>Respostas simples para a cliente entender como funciona antes de chamar.</p></div>
-        <div class="faq-grid">
-          <details open><summary>Como faço para agendar?</summary><p>Clique no botão de WhatsApp, escolha o serviço desejado e envie o melhor dia/horário.</p></details>
-          <details><summary>Quais serviços aparecem no site?</summary><p>Manicure, alongamento, blindagem, esmaltação em gel, manutenção, cursos e dúvidas.</p></details>
-          <details><summary>Onde é o atendimento?</summary><p>Aline Damião Nails atende em Jundiaí - SP. O endereço completo pode ser informado no WhatsApp.</p></details>
-          <details><summary>Dá para tirar dúvida antes de agendar?</summary><p>Sim. O formulário e os botões levam direto para o WhatsApp para tirar dúvidas sobre valores, horários e serviços.</p></details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><strong>Aline Damião Nails</strong><p>Manicure, alongamento, blindagem e esmaltação em gel.</p></div>
-      <div><strong>Contato</strong><p>WhatsApp: <a href="https://wa.me/5511973413498" target="_blank" rel="noreferrer">(11) 97341-3498</a></p><p>Instagram: @allinedamiao.nails</p></div>
-      <div><strong>Região</strong><p>Jundiaí - SP</p><p>Agendamento pelo WhatsApp.</p></div>
-    </div>
-    <div class="container copy">© <span id="year"></span> Aline Damião Nails. Todos os direitos reservados.</div>
-  </footer>
-
-  <a class="whatsapp-float" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">💬 Agendar horário</a>
-
-  <script>
-    const menuBtn=document.getElementById('menuBtn');
-    const mobileMenu=document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
-    mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
-
-    document.querySelectorAll('.tab').forEach(tab=>{
-      tab.addEventListener('click',()=>{
-        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-        tab.classList.add('active');
-        const filter=tab.dataset.filter;
-        document.querySelectorAll('.service').forEach(card=>{
-          card.style.display=filter==='all'||card.dataset.category===filter?'flex':'none';
-        });
-      });
-    });
-
-    document.getElementById('bookingForm')?.addEventListener('submit',e=>{
-      e.preventDefault();
-      const name=document.getElementById('name').value.trim()||'Cliente';
-      const service=document.getElementById('service').value;
-      const date=document.getElementById('date').value.trim()||'Gostaria de verificar os horários disponíveis.';
-      const details=document.getElementById('details').value.trim()||'Sem observações.';
-      const msg=`Olá, meu nome é ${name}. Vim pelo site da Aline Damião Nails e gostaria de agendar: ${service}. Melhor dia/horário: ${date}. Observação: ${details}`;
-      window.open(`https://wa.me/5511973413498?text=${encodeURIComponent(msg)}`,'_blank');
-    });
-
-    document.getElementById('year').textContent=new Date().getFullYear();
-  </script>
+<header class="topbar">
+<div class="container nav">
+<a href="#inicio" class="brand">
+<div class="logo">AD</div>
+<div><strong>Aline Damião Nails</strong><small>Manicure • Gel • Alongamento</small></div>
+</a>
+<nav class="navlinks">
+<a href="#trabalhos">Trabalhos</a>
+<a href="#sobre">Sobre</a>
+<a href="#servicos">Serviços</a>
+<a href="#agendamento">Agendamento</a>
+<a href="#contato">Contato</a>
+</nav>
+<a class="btn primary" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">Agendar Horário</a>
+<button class="btn dark menu-btn" id="menuBtn" type="button">☰</button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#trabalhos">Trabalhos</a>
+<a href="#sobre">Sobre</a>
+<a href="#servicos">Serviços</a>
+<a href="#agendamento">Agendamento</a>
+<a href="#contato">Contato</a>
+</div>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="container hero-content">
+<div class="kicker">Manicure em Jundiaí - SP</div>
+<h1>Unhas elegantes com cuidado, técnica e acabamento premium</h1>
+<p class="lead">Alongamento, blindagem e esmaltação em gel para quem busca beleza, durabilidade e um atendimento profissional.</p>
+<div class="hero-actions">
+<a class="btn primary" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">Agendar pelo WhatsApp</a>
+<a class="btn dark" href="#trabalhos">Ver trabalhos</a>
+</div>
+<div class="hero-bar">
+<div class="hero-stat"><strong>7 anos</strong><span>De experiência na área</span></div>
+<div class="hero-stat"><strong>9 mil+</strong><span>Seguidores no Instagram</span></div>
+<div class="hero-stat"><strong>Jundiaí</strong><span>Atendimento local</span></div>
+</div>
+</div>
+</section>
+<section class="gallery" id="trabalhos">
+<div class="container">
+<div class="section-head">
+<div><div class="label">Portfólio</div><h2>Trabalhos que valorizam cada detalhe</h2></div>
+<p>Galeria para destacar resultados reais de unhas, esmaltação, blindagem, alongamentos e acabamento. As fotos devem estar na pasta <b>imagens</b> do GitHub.</p>
+</div>
+<div class="gallery-grid">
+<article class="work art1"><div class="work-info"><small>Alongamento</small><strong>Formato elegante e natural</strong></div></article>
+<article class="work art2"><div class="work-info"><small>Gel</small><strong>Esmaltação em gel</strong></div></article>
+<article class="work art3"><div class="work-info"><small>Blindagem</small><strong>Proteção e brilho</strong></div></article>
+<article class="work art4"><div class="work-info"><small>Design</small><strong>Acabamento delicado</strong></div></article>
+<article class="work art5"><div class="work-info"><small>Clientes</small><strong>Resultado sofisticado</strong></div></article>
+<article class="work art6"><div class="work-info"><small>Manicure</small><strong>Cuidado completo</strong></div></article>
+</div>
+</div>
+</section>
+<section class="about" id="sobre">
+<div class="container about-layout">
+<div class="about-photo"></div>
+<div class="about-card">
+<div class="label">Sobre</div>
+<h2>Aline Damião Nails</h2>
+<p>Aline Damião atua como manicure em Jundiaí - SP, com experiência em alongamento, blindagem e esmaltação em gel.</p>
+<p>A proposta do site é facilitar o agendamento, apresentar os serviços de forma profissional e passar mais confiança para novas clientes que chegam pelo Instagram, WhatsApp ou indicações.</p>
+<div class="features">
+<div class="feature"><strong>7 anos na área</strong><span>Experiência e prática no atendimento.</span></div>
+<div class="feature"><strong>Agendamento fácil</strong><span>Cliente escolhe o serviço e chama no WhatsApp.</span></div>
+<div class="feature"><strong>Cursos e dúvidas</strong><span>Espaço para interessados em formação.</span></div>
+</div>
+</div>
+</div>
+</section>
+<section class="services" id="servicos">
+<div class="container">
+<div class="section-head">
+<div><div class="label">Serviços</div><h2>Escolha o procedimento e agende seu horário</h2></div>
+<p>Cards simples para a cliente entender os serviços e chamar diretamente no WhatsApp.</p>
+</div>
+<div class="tabs">
+<button class="tab active" data-filter="all">Todos</button>
+<button class="tab" data-filter="unhas">Unhas</button>
+<button class="tab" data-filter="gel">Gel</button>
+<button class="tab" data-filter="formacao">Formação</button>
+</div>
+<div class="services-grid">
+<article class="service" data-category="unhas"><div><span class="num">01</span><h3>Manicure</h3><p>Cuidado completo com as unhas, cutículas, acabamento e esmaltação.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20manicure." target="_blank" rel="noreferrer">Agendar →</a></article>
+<article class="service" data-category="gel"><div><span class="num">02</span><h3>Esmaltação em gel</h3><p>Brilho, durabilidade e acabamento sofisticado para o dia a dia.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20esmalta%C3%A7%C3%A3o%20em%20gel." target="_blank" rel="noreferrer">Agendar →</a></article>
+<article class="service" data-category="gel"><div><span class="num">03</span><h3>Alongamento</h3><p>Unhas com formato elegante, personalizado e visual natural.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20alongamento%20de%20unhas." target="_blank" rel="noreferrer">Agendar →</a></article>
+<article class="service" data-category="gel"><div><span class="num">04</span><h3>Blindagem</h3><p>Proteção para unhas naturais, com mais resistência e brilho.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20blindagem." target="_blank" rel="noreferrer">Agendar →</a></article>
+<article class="service" data-category="unhas"><div><span class="num">05</span><h3>Manutenção</h3><p>Renovação do alongamento, reparos e acabamento das unhas.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20manuten%C3%A7%C3%A3o%20das%20unhas." target="_blank" rel="noreferrer">Agendar →</a></article>
+<article class="service" data-category="formacao"><div><span class="num">06</span><h3>Cursos e dúvidas</h3><p>Espaço para interessadas em formação, agenda de cursos e informações.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20cursos%20e%20forma%C3%A7%C3%B5es." target="_blank" rel="noreferrer">Falar sobre cursos →</a></article>
+<article class="service" data-category="unhas"><div><span class="num">07</span><h3>Nail design</h3><p>Detalhes, combinações e acabamento para deixar as unhas mais exclusivas.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20nail%20design." target="_blank" rel="noreferrer">Agendar →</a></article>
+<article class="service" data-category="formacao"><div><span class="num">08</span><h3>Esterilização</h3><p>Área para destacar cuidados, higiene e biossegurança no atendimento.</p></div><a href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20atendimento." target="_blank" rel="noreferrer">Tirar dúvida →</a></article>
+</div>
+</div>
+</section>
+<section class="booking" id="agendamento">
+<div class="container booking-box">
+<div class="booking-copy"><div class="label">Agendamento</div><h2>Agende seu horário pelo WhatsApp</h2><p>Escolha o serviço, informe o melhor dia/horário e o site abre uma mensagem pronta para enviar no WhatsApp.</p></div>
+<form class="form" id="bookingForm">
+<h3>Pré-agendamento</h3>
+<p>Preencha e envie pelo WhatsApp.</p>
+<div class="field"><label for="name">Nome</label><input id="name" type="text" placeholder="Seu nome" /></div>
+<div class="field"><label for="service">Serviço desejado</label><select id="service"><option>Manicure</option><option>Esmaltação em gel</option><option>Alongamento</option><option>Blindagem</option><option>Manutenção</option><option>Cursos e dúvidas</option></select></div>
+<div class="field"><label for="date">Melhor dia/horário</label><input id="date" type="text" placeholder="Ex: sexta à tarde, sábado de manhã..." /></div>
+<div class="field"><label for="details">Observação</label><textarea id="details" placeholder="Ex: quero alongamento delicado, esmaltação em gel, tirar dúvida sobre valor..."></textarea></div>
+<button class="btn whats" type="submit">Enviar agendamento</button>
+</form>
+</div>
+</section>
+<section class="trust" id="contato">
+<div class="container">
+<div class="section-head"><div><div class="label">Contato</div><h2>Atendimento, localização e redes sociais</h2></div><p>Informações organizadas para facilitar a decisão da cliente antes de agendar.</p></div>
+<div class="trust-layout">
+<div class="panel"><h3>Presença no Instagram</h3><div class="stars">★★★★★</div><p class="muted">Perfil com mais de 9 mil seguidores, conteúdos de clientes, cursos, esterilização e formação.</p></div>
+<div class="panel"><h3>Informações</h3><ul class="contact-list"><li><b>Nome:</b> Aline Damião Nails</li><li><b>Instagram:</b> @allinedamiao.nails</li><li><b>WhatsApp:</b> (11) 97341-3498</li><li><b>Região:</b> Jundiaí - SP</li><li><b>Serviços:</b> Alongamento, blindagem e esmaltação em gel</li></ul><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a class="btn primary" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">Chamar no WhatsApp</a><a class="btn dark" href="https://instagram.com/allinedamiao.nails" target="_blank" rel="noreferrer">Ver Instagram</a></div></div>
+</div>
+</div>
+</section>
+<section class="faq" id="faq">
+<div class="container">
+<div class="section-head"><div><div class="label">Dúvidas comuns</div><h2>Perguntas frequentes</h2></div><p>Respostas simples para a cliente entender como funciona antes de chamar.</p></div>
+<div class="faq-grid">
+<details open><summary>Como faço para agendar?</summary><p>Clique no botão de WhatsApp, escolha o serviço desejado e envie o melhor dia/horário.</p></details>
+<details><summary>Quais serviços aparecem no site?</summary><p>Manicure, alongamento, blindagem, esmaltação em gel, manutenção, cursos e dúvidas.</p></details>
+<details><summary>Onde é o atendimento?</summary><p>Aline Damião Nails atende em Jundiaí - SP. O endereço completo pode ser informado no WhatsApp.</p></details>
+<details><summary>Dá para tirar dúvida antes de agendar?</summary><p>Sim. O formulário e os botões levam direto para o WhatsApp para tirar dúvidas sobre valores, horários e serviços.</p></details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-grid">
+<div><strong>Aline Damião Nails</strong><p>Manicure, alongamento, blindagem e esmaltação em gel.</p></div>
+<div><strong>Contato</strong><p>WhatsApp: <a href="https://wa.me/5511973413498" target="_blank" rel="noreferrer">(11) 97341-3498</a></p><p>Instagram: @allinedamiao.nails</p></div>
+<div><strong>Região</strong><p>Jundiaí - SP</p><p>Agendamento pelo WhatsApp.</p></div>
+</div>
+<div class="container copy">© <span id="year"></span> Aline Damião Nails. Todos os direitos reservados.</div>
+</footer>
+<a class="whatsapp-float" href="https://wa.me/5511973413498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aline%20Dami%C3%A3o%20Nails%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noreferrer">💬 Agendar horário</a>
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const mobileMenu=document.getElementById('mobileMenu');
+menuBtn?.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+document.querySelectorAll('.tab').forEach(tab=>{
+tab.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+tab.classList.add('active');
+const filter=tab.dataset.filter;
+document.querySelectorAll('.service').forEach(card=>{
+card.style.display=filter==='all'||card.dataset.category===filter?'flex':'none';
+});
+});
+});
+document.getElementById('bookingForm')?.addEventListener('submit',e=>{
+e.preventDefault();
+const name=document.getElementById('name').value.trim()||'Cliente';
+const service=document.getElementById('service').value;
+const date=document.getElementById('date').value.trim()||'Gostaria de verificar os horários disponíveis.';
+const details=document.getElementById('details').value.trim()||'Sem observações.';
+const msg=`Olá, meu nome é ${name}. Vim pelo site da Aline Damião Nails e gostaria de agendar: ${service}. Melhor dia/horário: ${date}. Observação: ${details}`;
+window.open(`https://wa.me/5511973413498?text=${encodeURIComponent(msg)}`,'_blank');
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
